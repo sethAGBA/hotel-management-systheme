@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'status',
     ];
 
     /**
@@ -33,6 +34,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isActive()
+    {
+        return $this->status === 'active';
+    }
 
     /**
      * Get the attributes that should be cast.

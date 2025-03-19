@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiche de Police - Informations Hôtel</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
+        <style>
         /* Styles de base */
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            line-height: 1.4;
             color: #2d3748;
             background: #f7fafc;
             margin: 0;
@@ -20,65 +20,62 @@
             max-width: 210mm; /* Format A4 */
             margin: 0 auto;
             background: white;
-            padding: 40px;
+            padding: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
         }
     
         /* Style du logo */
         .img-logo {
-            max-width: 150px;
+            max-width: 120px;
             height: auto;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     
         /* Style de l'adresse */
         address {
             text-align: center;
             font-style: normal;
-            margin-bottom: 30px;
-            padding: 15px;
-            border-bottom: 2px solid #e2e8f0;
-            color: #4a5568;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
         }
     
         address p {
-            margin: 5px 0;
-            font-size: 14px;
+            margin: 3px 0;
+            font-size: 12px;
+            color: #4a5568;
         }
     
         /* En-têtes */
         h2 {
             color: #1a365d;
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
+            font-size: 20px;
+            margin: 15px 0;
+            padding-bottom: 10px;
             border-bottom: 2px solid #e2e8f0;
         }
     
         h3 {
             color: #2c5282;
-            font-size: 18px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
+            font-size: 16px;
+            margin: 15px 0 10px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #e2e8f0;
         }
     
         /* Informations */
         p {
-            margin: 12px 0;
-            font-size: 14px;
+            margin: 5px 0;
+            font-size: 12px;
             display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 15px;
+            grid-template-columns: 180px 1fr;
+            gap: 10px;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #edf2f7;
+            padding: 4px 0;
         }
     
         p::before {
@@ -89,7 +86,7 @@
     
         /* Boutons */
         .no-print {
-            margin-top: 40px;
+            margin-top: 30px;
             display: flex;
             gap: 15px;
             justify-content: center;
@@ -127,45 +124,72 @@
     
         /* Styles d'impression */
         @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+    
             body {
                 background: white;
                 padding: 0;
-                font-size: 12px;
+                margin: 0;
             }
     
             .printable-form {
+                width: 100%;
+                padding: 0;
+                margin: 0;
                 box-shadow: none;
-                padding: 20px;
-                max-width: 100%;
                 border-radius: 0;
+            }
+    
+            h2 {
+                font-size: 10px;
+                margin: 10px 0;
+                color: #1a365d !important;
+                margin-top: 10px; /* Réduction de la marge supérieure après l'adresse */
+            }
+    
+            h3 {
+                font-size: 14px;
+                margin: 10px 0 5px;
+                color: #2c5282 !important;
+            }
+    
+            p {
+                font-size: 11px;
+                gap: 5px;
+                margin: 3px 0;
+                break-inside: avoid;
+            }
+    
+            p::before {
+                content: attr(data-label);
+                font-weight: 400;
+                color: #4a5568 !important;
+            }
+    
+            .img-logo {
+                max-width: 40px;
+                margin-bottom: 10px;
+            }
+            address {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+            address p {
+                font-size: 6px;
+                margin: 1px 0;
+                color: #4a5568 !important;
             }
     
             .no-print {
                 display: none;
             }
     
-            h2 {
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-    
-            h3 {
-                font-size: 16px;
-                margin-top: 15px;
-            }
-    
-            p {
-                font-size: 12px;
-                gap: 10px;
-                border-bottom: none;
-            }
-    
-            .img-logo {
-                max-width: 100px;
-            }
-    
-            address {
-                padding: 10px 0;
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
